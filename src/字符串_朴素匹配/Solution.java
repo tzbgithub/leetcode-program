@@ -8,8 +8,27 @@ import java.util.Stack;
  */
 
 class Solution {
+
+    // ***********************************************************暴力******************************************
+
+    public int strStr1(String haystack, String needle) {
+        int L = needle.length(), n = haystack.length();
+
+        for (int start = 0; start < n - L + 1; ++start) {
+            if (haystack.substring(start, start + L).equals(needle)) {
+                return start;
+            }
+        }
+        return -1;
+    }
+
+//
+//    作者：LeetCode
+//    链接：https://leetcode-cn.com/problems/implement-strstr/solution/shi-xian-strstr-by-leetcode/
+//    来源：力扣（LeetCode）
+//    著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
     // ***********************************************************朴素******************************************
-    public int strStr(String haystack, String needle) {
+    public int strStr2(String haystack, String needle) {
         int n1 = haystack.length();
         int n2 = needle.length();
         if(n2==0)
@@ -46,4 +65,6 @@ class Solution {
             return -1;
         return firstIndex;
     }
+
+
 }
